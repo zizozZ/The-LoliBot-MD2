@@ -962,9 +962,9 @@ if (!('reaction' in chat)) chat.reaction = true
 if (!('viewonce' in chat)) chat.viewonce = false         
 if (!('modoadmin' in chat)) chat.modoadmin = false      
 if (!('antitoxic' in chat)) chat.antitoxic = true 
-if (!('simi' in chat)) chat.simi = false
+if (!('simi' in chat)) chat.simi = true
 if (!('antiTraba' in chat)) chat.antiTraba = true
-if (!('autolevelup' in chat))  chat.autolevelup = false
+if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 //🟢 SI QUIERE CAMBIA ALGUNAS DE ESTA FUNCIÓNE DE (false a true) o (true a false), LOS PUEDE HACER. PERO DEJARLO IGUAL COMO ESTA PARA EVITAR ERRORES
@@ -995,7 +995,7 @@ reaction: true,
 viewonce: false,
 modoadmin: false,
 antitoxic: true,
-simi: false,
+simi: true,
 antiTraba: true,
 autolevelup: false,
 expired: 0,
@@ -1004,8 +1004,8 @@ let settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
 if (settings) {
 if (!('self' in settings)) settings.self = false
-if (!('autoread' in settings)) settings.autoread = false
-if (!('autoread2' in settings)) settings.autoread2 = false
+if (!('autoread' in settings)) settings.autoread = true
+if (!('autoread2' in settings)) settings.autoread2 = true
 if (!('restrict' in settings)) settings.restrict = false
 if (!('temporal' in settings)) settings.temporal = true
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
@@ -1014,8 +1014,8 @@ if (!('antiSpam' in settings)) settings.antiSpam = true
 if (!('jadibotmd' in settings)) settings.jadibotmd = true  
 } else global.db.data.settings[this.user.jid] = {
 self: false,
-autoread: false,
-autoread2: false,
+autoread: true,
+autoread2: true,
 restrict: false,
 temporal: true,
 antiPrivate: false,
@@ -1385,7 +1385,7 @@ if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
 if (!db.data.chats[m.chat].reaction && m.isGroup) throw 0
-if (!m.fromMem && m.text.match(/(@5492266466080|admin del bot|Bot|LoliBot|lolibot|The LoliBot-md|lolibot-md|The LoliBot-MD|:v)/gi)) {
+if (!m.fromMem && m.text.match(/(@201020809278|ادمن|Bot|بوت|زوز|زياد|lolibot-md|The LoliBot-MD|:v)/gi)) {
 let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
 this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}}}
